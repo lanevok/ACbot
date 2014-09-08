@@ -72,6 +72,7 @@ $now = getNow();
 $array = getDiff(getLast(), $now);
 for($i=0; $i<count($array); $i++){
   $problem_id = getProblemID($array->user[$i]->user_id);
+  if(strlen($problem_id)!=4) continue;
   $rank = getRank($array->user[$i]->user_id);
   $srv = new Twitter();
   $text = $array->user[$i]->user_id." が POJ の ".$problem_id." 番 を Accepted 。 解けた問題は "
