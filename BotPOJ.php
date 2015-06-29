@@ -79,6 +79,10 @@ for($i=0; $i<count($array); $i++){
     .(($array->user[$i]->solved)+1)." 問で、学内 ".count($now)." 人中 ".$rank." 位。 "
     ."http://poj.org/problem?id=".$problem_id;
   $srv->post($text);
+  if((($array->user[$i]->solved)+1)%100==0){
+    $text = "☆彡 ".$array->user[$i]->user_id." が POJ ".(($array->user[$i]->solved)+1)." 問達成！ ☆彡";
+    $srv->post($text);
+  }
   unset($srv);
 }
 if(count($array)>0)
