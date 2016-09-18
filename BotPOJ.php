@@ -6,11 +6,11 @@ require_once 'Twitter.php';
 function getNow(){
   $api = "http://poj.org/searchuser?key=meiji&field=school";
   $api = file_get_contents($api);
-  preg_match_all("/(userstatus\?user_id=)(.*?)(\>)(.*?)(meiji)"
+  preg_match_all("/(userstatus\?user_id=)(.*?)(\>)(.*?)(\/td)(.*?)(\/td)(.*?)(meiji)"
 		 ."(.*?)(td)(.*?)(td)(.*?)(td)(.*?)(td\>)(.*?)(\<\/td)/is"
 		 ,$api,$match);
   for($i=0; $i<count($match[2]); $i++)
-    $array[$match[2][$i]] = $match[14][$i];
+    $array[$match[2][$i]] = $match[18][$i];
   return $array;
 }
 
